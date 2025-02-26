@@ -75,6 +75,11 @@ A typical command for running YuraScanner on the admin dashboard of a locally ho
 yurascanner http://localhost/admin/ --username admin --password password --gpt4 --autotask --headless --screenshot -t 60
 ```
 
+### ARM Machines
+
+If you want to run yurascanner on ARM machines or architectures that don't get a google-chrome release, you must specify the executable path for the browser, chromium should be the most ubiquitous.
+Just add `-x <path to your browser's executable file>`
+
 We explain the specified options in the following:
 * `--username` and `--password` can be used to specify the (admin) credentials for the application. The automated login function of YuraScanner then tries to find and submit a login form on the given starting page. The session is automatically re-authenticated by logging in again (if necessary) after each finished task.
 * `--gpt4` specifies that OpenAI GPT-4 should be used instead of the default GPT-3.5 Turbo. GPT-4 is more expensive, but also performs significantly better than GPT-3.5 Turbo. Hence, it is recommended to use this flag.
