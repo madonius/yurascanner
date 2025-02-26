@@ -33,7 +33,8 @@ const MainModule = require('./modules/main-module'),
         .option('-p, --password <pass>', 'log in with the specified password')
         .option('-f, --taskfile <filepath>', 'use a custom task file instead of /input/default-tasks.txt')
         .option('-e, --eval <jsfile>', 'evaluate the crawler\'s performance using custom JS tests')
-        .parse();
+	.option('-x, --executable-path <executable', 'the path to your browser executable', null)
+	.parse();
 
     // Setup timeout after which the crawler is terminated
     if (program.opts().timeout !== undefined) {
@@ -52,7 +53,8 @@ const MainModule = require('./modules/main-module'),
             defaultViewport: {
                 width:1920,
                 height:1080
-            }
+            },
+	    executablePath: program.opts().executablePath
         });
         const page = (await browser.pages())[0];
         const cdp = await page.target().createCDPSession();
