@@ -68,6 +68,11 @@ instance. As shown in the figure, it uses the Actions Mapping to translate the n
     ```
    **⚠️ Please note that your account will be billed for the API requests that YuraScanner performs!**
 
+### Docker
+
+1. `docker build --tag 'yurascanner' .` 
+2. `docker run -t -i --mount type=bind,src=.env,dst=/yurascanner/.env yurascanner /bin/bash`
+
 ## Usage
 A typical command for running YuraScanner on the admin dashboard of a locally hosted web application may look like this:
 
